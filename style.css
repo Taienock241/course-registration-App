@@ -533,7 +533,7 @@ body {
 }
 
 .table-wrap.half-width {
-  width: 50vw;
+  width: 70vw;
   height: 50vh;
   overflow: auto;
 }
