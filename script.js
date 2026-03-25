@@ -1,6 +1,8 @@
 // Theme Toggle Functionality
 const themeToggle = document.getElementById('theme-toggle');
 const html = document.documentElement;
+const menuToggle = document.getElementById('menu-toggle');
+const mobileNav = document.getElementById('mobile-nav');
 
 // Load saved theme
 const savedTheme = localStorage.getItem('theme');
@@ -27,6 +29,37 @@ function updateThemeIcon(theme) {
   } else {
     icon.className = 'fas fa-moon';
   }
+}
+
+function setMobileMenuState(isOpen) {
+  if (!menuToggle || !mobileNav) return;
+  menuToggle.setAttribute('aria-expanded', String(isOpen));
+  mobileNav.setAttribute('aria-hidden', String(!isOpen));
+  menuToggle.classList.toggle('active', isOpen);
+  mobileNav.classList.toggle('is-open', isOpen);
+}
+
+function closeMobileMenuOnDesktop() {
+  if (window.innerWidth > 480) {
+    setMobileMenuState(false);
+  }
+}
+
+if (menuToggle && mobileNav) {
+  setMobileMenuState(false);
+
+  menuToggle.addEventListener('click', () => {
+    const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+    setMobileMenuState(!isOpen);
+  });
+
+  mobileNav.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      setMobileMenuState(false);
+    });
+  });
+
+  window.addEventListener('resize', closeMobileMenuOnDesktop);
 }
 
 // Live Search Filter for Units Table

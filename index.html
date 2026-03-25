@@ -19,7 +19,7 @@
         </div>
       </div>
 
-      <ul class="nav-links">
+      <ul class="nav-links" id="mobile-nav" aria-hidden="false">
         <li><a href="#intro">About</a></li>
         <li><a href="#facilities">Facilities</a></li>
         <li><a href="#units">Units</a></li>
@@ -28,9 +28,22 @@
         <li><a href="#apply">Apply</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <button id="theme-toggle" class="btn ghost" aria-label="Toggle theme">
-        <i class="fas fa-moon"></i>
-      </button>
+      <div class="nav-controls">
+        <button id="theme-toggle" class="btn ghost" aria-label="Toggle theme">
+          <i class="fas fa-moon"></i>
+        </button>
+        <button
+          id="menu-toggle"
+          class="menu-toggle"
+          aria-label="Toggle navigation menu"
+          aria-controls="mobile-nav"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
   </nav>
 
