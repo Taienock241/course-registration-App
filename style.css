@@ -797,7 +797,7 @@ input:focus, select:focus, textarea:focus {
   .cards-grid, .split, .media-grid, .contact-grid, .info-grid, .courses-timeline { grid-template-columns: 1fr; }
   .hero-stats { grid-template-columns: 1fr; }
   .nav-links { gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
-  .table-wrap.half-width { width: 100vw; height: auto; }
+  .table-wrap.half-width { width: 100%; max-width: 100%; height: auto; }
   .map-card { grid-column: span 1; }
   .navbar-brand-section { flex-direction: column; align-items: flex-start; gap: 8px; }
   .navbar-title { font-size: 0.9rem; }
@@ -810,6 +810,8 @@ input:focus, select:focus, textarea:focus {
 }
 
 #unit-search {
+  width: 100%;
+  max-width: 100%;
   padding: 12px 16px;
   border-radius: 12px;
   border: 1px solid var(--border);
@@ -837,6 +839,231 @@ input:focus, select:focus, textarea:focus {
 #theme-toggle:hover {
   background: var(--bg-card);
   color: var(--accent);
+}
+
+@media (max-width: 768px) {
+  .nav-container {
+    flex-wrap: wrap;
+    row-gap: 12px;
+  }
+
+  #theme-toggle {
+    margin-left: auto;
+  }
+
+  .hero {
+    min-height: 56vh;
+    background-attachment: scroll;
+  }
+
+  .hero-content {
+    padding: 44px 0;
+  }
+
+  .hero-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .container {
+    width: 94%;
+    margin: 26px auto;
+  }
+
+  .section {
+    margin: 22px 0;
+    padding: 18px;
+  }
+
+  .card img {
+    height: 170px;
+  }
+
+  .embed iframe,
+  .contact-map {
+    height: 220px;
+  }
+
+  .social-links {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .nav-container {
+    width: 94%;
+    padding: 10px 0;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    gap: 10px;
+  }
+
+  .navbar-brand-section {
+    flex-direction: row;
+    align-items: flex-start;
+    min-width: 0;
+    gap: 10px;
+  }
+
+  .navbar-info {
+    min-width: 0;
+  }
+
+  .navbar-title,
+  .navbar-subtitle {
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .nav-links {
+    grid-column: 1 / -1;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .nav-links li {
+    min-width: 0;
+  }
+
+  .nav-links a {
+    display: block;
+    text-align: center;
+    padding: 10px 8px;
+    font-size: 0.9rem;
+  }
+
+  #theme-toggle {
+    justify-self: end;
+    padding: 7px 10px;
+  }
+
+  .hero-content {
+    width: 94%;
+    padding: 34px 0;
+  }
+
+  .hero h1 {
+    font-size: clamp(1.35rem, 7vw, 1.8rem);
+    line-height: 1.25;
+  }
+
+  .subtitle {
+    font-size: 0.92rem;
+  }
+
+  .hero-actions {
+    width: 100%;
+    gap: 10px;
+  }
+
+  .hero-actions .btn,
+  .form-actions .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .stat {
+    padding: 12px;
+  }
+
+  .section h2 {
+    font-size: 1.12rem;
+    padding-left: 10px;
+    margin-bottom: 12px;
+  }
+
+  .section > p {
+    padding: 14px;
+    font-size: 0.98rem;
+    line-height: 1.65;
+  }
+
+  .info-card,
+  .panel,
+  .course-card,
+  .media-card,
+  .contact-card {
+    padding: 14px;
+  }
+
+  .cards-grid,
+  .media-grid,
+  .contact-grid,
+  .form-grid,
+  .courses-timeline,
+  .split,
+  .info-grid {
+    gap: 12px;
+  }
+
+  .card img {
+    height: 155px;
+  }
+
+  .table-wrap.half-width {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 12px;
+  }
+
+  table {
+    min-width: 500px;
+  }
+
+  th,
+  td {
+    padding: 10px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+
+  .embed iframe,
+  .contact-map {
+    height: 190px;
+  }
+
+  .social-icon {
+    padding: 10px 12px;
+    font-size: 0.9rem;
+  }
+
+  .footer {
+    padding: 18px 10px;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .nav-links {
+    grid-template-columns: 1fr;
+  }
+
+  .brand {
+    font-size: 0.95rem;
+  }
+
+  .navbar-title {
+    font-size: 0.82rem;
+  }
+
+  .navbar-subtitle {
+    font-size: 0.66rem;
+  }
+
+  .hero h1 {
+    font-size: 1.28rem;
+  }
+
+  .stat-number {
+    font-size: 1rem;
+  }
 }
 
 .toast {
