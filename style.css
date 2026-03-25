@@ -591,6 +591,15 @@ th, td {
   border-bottom: 1px solid var(--border);
 }
 
+.responsive-table th,
+.responsive-table td {
+  vertical-align: top;
+}
+
+.responsive-table td {
+  line-height: 1.5;
+}
+
 th { text-align: left; background: rgba(46, 125, 50, 0.85); color: #fff; }
 
 tbody tr:hover { background: rgba(255, 255, 255, 0.05); }
@@ -1137,6 +1146,10 @@ input:focus, select:focus, textarea:focus {
     min-width: 480px;
   }
 
+  .responsive-table {
+    min-width: 480px;
+  }
+
   th,
   td {
     padding: 10px;
@@ -1169,6 +1182,58 @@ input:focus, select:focus, textarea:focus {
   .footer {
     padding: 1.125rem 0.625rem;
     font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .table-wrap {
+    overflow-x: auto;
+  }
+
+  .responsive-table {
+    min-width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 0.5rem;
+    background: transparent;
+  }
+
+  .responsive-table thead {
+    display: none;
+  }
+
+  .responsive-table tbody {
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .responsive-table tr {
+    display: grid;
+    grid-template-columns: 1fr;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--bg-card);
+    overflow: hidden;
+  }
+
+  .responsive-table td {
+    display: grid;
+    grid-template-columns: 8.5rem 1fr;
+    align-items: start;
+    gap: 0.5rem;
+    padding: 0.65rem 0.75rem;
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  .responsive-table td::before {
+    content: attr(data-label);
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 0.82rem;
+  }
+
+  .responsive-table td + td {
+    border-top: 1px solid var(--border);
   }
 }
 
